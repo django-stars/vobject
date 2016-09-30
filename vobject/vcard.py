@@ -149,7 +149,7 @@ class VCardTextBehavior(behavior.Behavior):
         if not line.encoded:
             encoding = getattr(line, 'encoding_param', None)
             if encoding and encoding.upper() == cls.base64string:
-                line.value = base64.b64encode(line.value.encode('utf-8')).decode('utf-8').replace('\n', '')
+                line.value = base64.b64encode(line.value).decode('utf-8').replace('\n', '')
             else:
                 line.value = backslashEscape(line.value)
             line.encoded=True
